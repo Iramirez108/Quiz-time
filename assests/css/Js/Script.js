@@ -38,3 +38,34 @@ var questions =[
         answer:"a. Javascript",
     }
 ];
+
+
+var timer = document.getElementById("Timer");
+var timeLeft = document.getElementById("timeLeft");
+var timesUp = document.getElementById("timeUp");
+
+var totalTime = 75;
+function newQuiz(){
+    questionIndex = 0;
+    totalTime = 75;
+    timeLeft.textContent = totaltime;
+    initialInput.textContent="";
+
+    startDiv.style.display = "None";
+    questionDiv.style.display = "block";
+    timer.style.display = "block";
+    timesUp.style.display = "none";
+
+    var startTimer = setInterval(function(){
+        totalTime--;
+        timeleft.textContent = totalTime;
+        if(totalTime <=0){
+            clearInterval(startTimer);
+            if(questionIndex<question.lenght -1){
+                gameover();
+            }
+        }
+    },)
+    showQuiz()
+};
+
