@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Time!</title>
+    <link rel="stylesheet" href="/homework/week-04/Quiz-time/assests/css/style.css"/>
+</head>
+<body>
+    <div class="container">
+<!--timer and high score link-->
+        <div class="row">
+            <a href="#" id="viewHighScore">View High Scores</a>
+        </div>
+        <div id="timer" class= "text-right">
+            <i class="far fa-clock"></i> Time: <span id="timeLeft">0</span>
+        </div>
+        <div id="timesUp" class="text-right" style="display:none;">Time is up!</div>
+    </div>
+<!-- Home page to get to start the quiz-->
+    <div id="everything" c;ass="row text-left">
+        <div class="col-md-2"></div>
+        <main class="col-md-2">
+            <div id="start" class="m-2 justify-content-center">
+                <h1 class="font-weight-bold pl-5 pr-5">Coding Quiz Challenge</h1>
+                <p class = "p-2">lets test your knowledge of Javascript fundamentals! Try to answer the following code-related questions within the time limit. Keepn in m ind that incorrect answers will penalize your time by ten seconds</p>
+                <button type="button" id="start-quiz-btn" class = "btn btn-info ml-2 align-center">Start Quiz</button>
+            </div>
+            <!--question section-->
+            <div id="questions" style="display:none;">
+                <p id="questionsTitle" class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold"></p>
+                <div class="pl-5 pt-2 pb-3 m-2 justify-content-center">
+                    <p><button id="btn0" class="btn btn-dark"></button></p>
+                    <p><button id="btn1" class="btn btn-dark"></button></p>
+                    <p><button id="btn2" class="btn btn-dark"></button></p>
+                    <p><button id="btn3" class="btn btn-dark"></button></p>
+                    <hr id="lineBreak" style="display:none" class="mt-4">
+                    <p id="answercheck" style="display:none;"></p>
+                </div>
+            </div>
+            <div class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold" id="summary" style="display:none;">
+            <div class="col-2"></div>
+            <div class="col-8 text-left">
+                <h2 class="font-weight-bold [pt-2 pb-3 m-2"> Your final score is <span id="finalScore"></span></h2>
+                <form>
+                    <p class="pt-2 pb-3 m-2"> enter your initials: <input id="initialsInput" class="form-control pt-2 pb-3 mt-2" type="text">
+                    <button type="submit" id="submitInitialBtn" class="btn btn-infor mt-3">submit</button>
+                    </p>
+                </form>
+            </div>
+            <div class="col-2"></div>
+                <!-- high score section-->
+            <div id="highScoreSection" class="pl-5 ml-4 pt-5 justify-content-center font-weight-bold" style="display:none;">
+            <h2 class="font-weight-bold pt-2 pb-3 mb-2">High Scores</h2>
+
+            <div id="listOfHighScores" class="list-group list-group-flush pt-2 pb-3 mb-2"></div>
+
+            <p>
+                <button type="submit" class="btn btn-info mt-3 mr-3" id="goBackBtn">Go back</button>
+                <button type="submit" class="btn btn-info mt-3 mr-3" id="clearHighScoreBtn">Clear High Scores</button >
+            </p>
+        
+        </div>
+        </main>
+        <div class="col-md-2"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
+</html>
