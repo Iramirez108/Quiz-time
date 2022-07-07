@@ -69,3 +69,104 @@ function newQuiz(){
     showQuiz()
 };
 
+
+
+var questionDiv = document.getElementById("questionDiv");
+var questionTitle = document.getElementById("questionTitle");
+var choiceA = document.getElementById("btn0");
+var choiceA = document.getElementById("btn1");
+var choiceA = document.getElementById("btn2");
+var choiceA = document.getElementById("btn3");
+var answerCheck = document.getElementById("answercheck");
+
+function showQuiz(){
+    nextQuestion();
+}
+
+function nextQuestion(){
+    questionTitle.textContent = question[questionIndex].question;
+    choiceA.textContent = question[questionIndex].choice[0];
+    choiceB.textContent = question[questionIndex].choice[1];
+    choiceC.textContent = question[questionIndex].choice[2];
+    choiceD.textContent = question[questionIndex].choice[3];
+}
+
+
+var startDiv = document.getElementById("start");
+var startQuizBtn = document.getElementById("start-quiz-button");
+
+function checkAnswer(answer){
+
+    var lineBreak = document.getElementById("lineBreak");
+    lineBreak.style.display = "block";
+    answerCheck.stlye.display = "block";
+
+    if(questions[questionIndex].answer === questions[questionIndex].choices[answer]){
+        correctAns++;
+        answerCheck.textContent = "correct!";
+        //console.log(correct)
+    } else {
+        totalTime = -10
+        timeLeft.textContent = totalTime;
+        answerCheck.textContent = "wrong!"
+    }
+    questionIndex++;
+    if(questionIndex<question.lenght){
+        nextQuestion();
+    }else {
+        gameOver();
+    }
+}
+
+
+function chooseA(){checkAnswer(0);}
+
+function chooseB(){checkAnswer(1);}
+
+function chooseC(){checkAnswer(2);}
+
+function chooseD(){checkAnswer(3);}
+
+
+
+function gameOver(){
+    summary.style.display = "block";
+    questionDiv.style.display = "none";
+    startDiv.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "block";
+
+    finalScore.textContent = correctAns;
+}
+
+function storeHighScores(event){
+    event.preventDefault()
+
+    if (initialInput.value === ""){
+        alert("please enter your initials!");
+        return;
+    }
+    startDivdiv.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "none";
+    summary.style.display = "none";
+    highScoreSection.style.display = "block";
+
+    var savedHihgScores = localStorage.getItem("high scores");
+    var scoresArray;
+
+    if (savedHighScores === null){
+        scoresArray = [];
+    } else{
+        scoresArray = JSON.parse(savedHighScores)
+}
+    var useScore = {
+        initials: initialInput.value,
+        score:finalScore.textContent
+    };
+
+    var scoresArrayString = JSON.stringify(scoresArray);
+    window.localStorage.setItem("high Scores", ScoresArrayString);
+
+    ShowHighScores();
+}
